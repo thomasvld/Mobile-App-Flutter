@@ -2,6 +2,7 @@ import 'package:app_mobile/main.dart';
 import 'package:app_mobile/pages/PageAdmin.dart';
 import 'package:app_mobile/pages/PageBleach.dart';
 import 'package:app_mobile/pages/PageDragonBall.dart';
+import 'package:app_mobile/pages/PageIdentifier.dart';
 import 'package:app_mobile/pages/PageNaruto.dart';
 import 'package:app_mobile/pages/PageOnePiece.dart';
 import 'package:flutter/material.dart';
@@ -100,6 +101,23 @@ class HomePage extends StatelessWidget {
               },
               child: Text(
                 "One Piece",
+                style: TextStyle(
+                    fontSize: 12, color: Color.fromARGB(255, 255, 255, 255)),
+              )),
+          Padding(padding: EdgeInsets.only(top: 20)),
+          ElevatedButton(
+              style: ButtonStyle(
+                  padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
+                  backgroundColor: MaterialStatePropertyAll(
+                      Color.fromARGB(199, 27, 204, 45))),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                        pageBuilder: (_, __, ___) => PageIdentifier()));
+              },
+              child: Text(
+                "S'identifier",
                 style: TextStyle(
                     fontSize: 12, color: Color.fromARGB(255, 255, 255, 255)),
               )),
