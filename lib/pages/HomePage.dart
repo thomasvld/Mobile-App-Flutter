@@ -17,6 +17,8 @@ class HomePage extends StatelessWidget {
     super.key,
   });
 
+    
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -121,7 +123,24 @@ class HomePage extends StatelessWidget {
                 style: TextStyle(
                     fontSize: 12, color: Color.fromARGB(255, 255, 255, 255)),
               )),
-          Padding(padding: EdgeInsets.only(top: 20)),
+              Padding(padding: EdgeInsets.only(top: 20)),
+              ElevatedButton(
+                  style: ButtonStyle(
+                      padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
+                      backgroundColor: MaterialStatePropertyAll(
+                          Color.fromARGB(199, 27, 204, 45))),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                            pageBuilder: (_, __, ___) => PageOnePiece()));
+                  },
+                  child: Text(
+                    "Se déconnecter",
+                    style: TextStyle(
+                        fontSize: 12, color: Color.fromARGB(255, 255, 255, 255)),
+                  )),
+          Padding(padding: EdgeInsets.only(top: 20)), //repere
           ElevatedButton(
               style: ButtonStyle(
                   padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
