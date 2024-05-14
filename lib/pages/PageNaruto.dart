@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:app_mobile/models/scan_model.dart';
+import 'package:app_mobile/services/api_service.dart';
 
 class PageNaruto extends StatelessWidget {
-  const PageNaruto({Key? key}) : super(key: key);
+  PageNaruto({Key? key}) : super(key: key);
+  final ApiService apiService = ApiService();
 
   @override
   Widget build(BuildContext context) {
@@ -13,36 +16,31 @@ class PageNaruto extends StatelessWidget {
         ),
         backgroundColor: (Color.fromARGB(255, 27, 103, 204)),
       ),
-      body: Center(
-        child: ListView(
-          children: [
-            Card(
-              child: ListTile(
-                leading: Text("Id#"),
-                title: Text("Nom du manga"),
-                subtitle: Text("Chemin de l'image"),
-                trailing: Icon(Icons.more_vert),
-              ),
-            ),
-            Card(
-              child: ListTile(
-                leading: Text("Id#"),
-                title: Text("Nom du manga"),
-                subtitle: Text("Chemin de l'image"),
-                trailing: Icon(Icons.more_vert),
-              ),
-            ),
-            Card(
-              child: ListTile(
-                leading: Text("Id#"),
-                title: Text("Nom du manga"),
-                subtitle: Text("Chemin de l'image"),
-                trailing: Icon(Icons.more_vert),
-              ),
-            ),
-          ],
+      body: FutureBuilder<List<ArticleModel>>(
+          future: apiService.getArticles(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              var data = snapshot.data!;
+              return ListView.builder(
+                itemCount: data.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text("${data[index].name}"),
+                    leading: FlutterLogo(size: 200),
+                  );
+                },
+              );
+            } else if (snapshot.hasError) {
+              return Center(
+                child: Text('${snapshot.error}'),
+              );
+            }
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          },
         ),
-      ),
     );
   }
 }
+
