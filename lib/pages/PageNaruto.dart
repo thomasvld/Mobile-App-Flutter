@@ -16,8 +16,8 @@ class PageNaruto extends StatelessWidget {
         ),
         backgroundColor: (Color.fromARGB(255, 27, 103, 204)),
       ),
-      body: FutureBuilder<List<ArticleModel>>(
-          future: apiService.getArticles(),
+      body: FutureBuilder<List<ScanModel>>(
+          future: apiService.getScans(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               var data = snapshot.data!;

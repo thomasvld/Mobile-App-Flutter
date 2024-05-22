@@ -1,13 +1,13 @@
-class ArticleModel {
+class ScanModel {
   final int id;
   final String name;
   final String imageData;
 
 
-  ArticleModel({this.id = 0, this.name = "", this.imageData = ""});
+  ScanModel({this.id = 0, this.name = "", this.imageData = ""});
 
-  factory ArticleModel.fromJson(Map<String, dynamic> json) {
-    return ArticleModel(
+  factory ScanModel.fromJson(Map<String, dynamic> json) {
+    return ScanModel(
       id: json['id'],
       name: json['name'],
       imageData: json['imageData'],
