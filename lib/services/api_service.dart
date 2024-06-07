@@ -4,6 +4,10 @@ import 'package:app_mobile/models/scan_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:connectivity/connectivity.dart';
 
+//définit une classe qui est utilisée pour interagir avec une API externe
+//pour obtenir une liste de scans. Il comprend des vérifications de connectivité 
+//et des gestionnaires d'exceptions pour gérer les erreurs potentielles.
+
 class ApiService {
   Future<List<ScanModel>> getScans() async {
     var connectivityResult = await (Connectivity().checkConnectivity());
@@ -15,7 +19,7 @@ class ApiService {
     try {
       print('Sending HTTP request');
       // ignore: unnecessary_string_escapes
-      final response = await http.get(Uri.http("localhost:3000", "ScanController.cs")).timeout(const Duration(seconds: 5));
+      final response = await http.get(Uri.http("localhost:3000", "Controller")).timeout(const Duration(seconds: 5));
       print('Received HTTP response with status code ${response.statusCode}');
       if (response.statusCode == 200) {
         try {

@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Scan ou cannes",
+          "ScanManga",
           style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
         ),
         backgroundColor: (Color.fromARGB(255, 27, 103, 204)),
