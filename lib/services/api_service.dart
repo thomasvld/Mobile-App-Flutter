@@ -14,7 +14,8 @@ class ApiService {
 
     try {
       print('Sending HTTP request');
-      final response = await http.get(Uri.http("localhost:3000", "controllers")).timeout(const Duration(seconds: 5));
+      // ignore: unnecessary_string_escapes
+      final response = await http.get(Uri.http("localhost:3000", "ScanController.cs")).timeout(const Duration(seconds: 5));
       print('Received HTTP response with status code ${response.statusCode}');
       if (response.statusCode == 200) {
         try {

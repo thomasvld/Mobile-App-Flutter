@@ -5,12 +5,14 @@ import 'package:app_mobile/pages/PageDragonBall.dart';
 import 'package:app_mobile/pages/PageIdentifier.dart';
 import 'package:app_mobile/pages/PageNaruto.dart';
 import 'package:app_mobile/pages/PageOnePiece.dart';
+import 'package:app_mobile/services/geo.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:app_mobile/pages/Locate.dart';
+import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({
@@ -122,24 +124,7 @@ class HomePage extends StatelessWidget {
                 "S'identifier",
                 style: TextStyle(
                     fontSize: 12, color: Color.fromARGB(255, 255, 255, 255)),
-              )),
-              Padding(padding: EdgeInsets.only(top: 20)),
-              ElevatedButton(
-                  style: ButtonStyle(
-                      padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
-                      backgroundColor: MaterialStatePropertyAll(
-                          Color.fromARGB(199, 27, 204, 45))),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        PageRouteBuilder(
-                            pageBuilder: (_, __, ___) => PageOnePiece()));
-                  },
-                  child: Text(
-                    "Se déconnecter",
-                    style: TextStyle(
-                        fontSize: 12, color: Color.fromARGB(255, 255, 255, 255)),
-                  )),
+              )),             
           Padding(padding: EdgeInsets.only(top: 20)), //repere
           ElevatedButton(
               style: ButtonStyle(
@@ -155,6 +140,7 @@ class HomePage extends StatelessWidget {
                 style: TextStyle(
                     fontSize: 12, color: Color.fromARGB(255, 255, 255, 255)),
               )),
+          LocationTextWidget(),
         ]),
       ),
     );
